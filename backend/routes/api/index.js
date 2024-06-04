@@ -1,5 +1,8 @@
 // backend/routes/api/index.js
 const router = require('express').Router();
+const { setTokenCookie, restoreUser, requireAuth } = require('../../utils/auth');
+const { User } = require('../../db/models');
+
 
 // CSRF restore route
 router.get('/csrf/restore', (req, res) => {
@@ -8,8 +11,28 @@ router.get('/csrf/restore', (req, res) => {
 });
 
 // Test route
-router.post('/test', function(req, res) {
-  res.json({ requestBody: req.body });
-});
+// router.post('/test', function(req, res) {
+//   res.json({ requestBody: req.body });
+// });
 
-module.exports = router;
+router.get('/set-token-cookie', async (_req, res) => {
+    const user = await User.findOne({
+      where: {
+        username: 'Demo-lition'
+      }
+    });
+    setTokenCookie(res, user);
+    return res.json({ user: user });
+  });
+
+  router.use(restoreUser);
+
+  router.get('/restore-user', (req, res) => {
+    return res.json(req.user);
+  });
+
+  router.get('/require-auth', requireAuth, (req, res) => {
+    return res.json(req.user);
+  });
+
+  module.exports = router;
