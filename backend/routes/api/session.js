@@ -45,4 +45,33 @@ router.post(
   }
 );
 
+
+// Log out
+router.delete(
+    '/',
+    (req, res) => {
+      res.clearCookie('token');
+      return res.json({ message: 'success' });
+    }
+  );
+
+  // Get session user
+router.get(
+    '/',
+    restoreUser,
+    (req, res) => {
+      if (!req.user) {
+        return res.json({ user: null });
+      }
+
+      const safeUser = {
+        id: req.user.id,
+        email: req.user.email,
+        username: req.user.username,
+      };
+
+      return res.json({ user: safeUser });
+    }
+  );
+
 module.exports = router;
