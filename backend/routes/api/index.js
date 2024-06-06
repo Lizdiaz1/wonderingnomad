@@ -5,8 +5,9 @@ const { User } = require('../../db/models');
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 
-
-
+router.use(restoreUser);
+router.use('/session', sessionRouter);
+router.use('/users', usersRouter);
 
 // CSRF restore route
 router.get('/csrf/restore', (req, res) => {
@@ -28,10 +29,6 @@ router.get('/set-token-cookie', async (_req, res) => {
     setTokenCookie(res, user);
     return res.json({ user: user });
   });
-
-  router.use(restoreUser);
-  router.use('/session', sessionRouter);
- router.use('/users', usersRouter);
 
 router.post('/test', (req, res) => {
   res.json({ requestBody: req.body });
