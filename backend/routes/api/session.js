@@ -55,22 +55,21 @@ router.delete(
     }
   );
 
-  // Get session user
+  // Restore session user
 router.get(
     '/',
-    restoreUser,
     (req, res) => {
-      if (!req.user) {
-        return res.json({ user: null });
-      }
-
-      const safeUser = {
-        id: req.user.id,
-        email: req.user.email,
-        username: req.user.username,
-      };
-
-      return res.json({ user: safeUser });
+      const { user } = req;
+      if (user) {
+        const safeUser = {
+          id: user.id,
+          email: user.email,
+          username: user.username,
+        };
+        return res.json({
+          user: safeUser
+        });
+      } else return res.json({ user: null });
     }
   );
 
