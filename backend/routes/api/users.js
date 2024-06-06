@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const { User } = require('../../db/models');
 const { setTokenCookie } = require('../../utils/auth');
 const router = express.Router();
+
 // Sign up
 router.post(
     '/',
