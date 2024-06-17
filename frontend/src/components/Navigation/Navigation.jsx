@@ -1,51 +1,136 @@
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import ProfileButton from './ProfileButton';
+import { useState, useEffect, useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { FaUserCircle } from 'react-icons/fa';
+import * as sessionActions from '../../store/session';
 import OpenModalButton from '../OpenModalButton';
-import LoginModal from '../LoginModal';
-import SignupModal from '../SignupModal';
-import './Navigation.css';
+import LoginFormModal from '../LoginFormModal';
+import SignupFormModal from '../SignupFormModal';
+import './ProfileButton.css';
 
-function Navigation({ isLoaded }) {
-  const sessionUser = useSelector((state) => state.session.user);
+function ProfileButton({ user }) {
+  const dispatch = useDispatch();
+  const [showMenu, setShowMenu] = useState(false);
+  const ulRef = useRef();
 
-  let sessionLinks;
-  if (sessionUser) {
-    sessionLinks = (
-      <li>
-        <ProfileButton user={sessionUser} />
-      </li>
-    );
-  } else {
-    sessionLinks = (
-      <>
-        <li>
-          <OpenModalButton
-            buttonText="Log In"
-            modalComponent={<LoginModal />}
-          />
-        </li>
-        <li>
-          <OpenModalButton
-            buttonText="Sign Up"
-            modalComponent={<SignupModal />}
-          />
-        </li>
-      </>
-    );
-  }
+  const toggleMenu = (e) => {
+    e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
+    setShowMenu(!showMenu);
+  };
+
+  useEffect(() => {
+    if (!showMenu) return;
+
+    const closeMenu = (e) => {
+      if (!ulRef.current.contains(e.target)) {
+        setShowMenu(false);
+      }
+    };
+
+    document.addEventListener('click', closeMenu);
+
+    return () => document.removeEventListener("click", closeMenu);
+  }, [showMenu]);
+
+  const closeMenu = () => setShowMenu(false);
+
+  const logout = (e) => {
+    e.preventDefault();
+    dispatch(sessionActions.logout());
+    closeMenu();
+  };
+
+  const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
 
   return (
-    <ul>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
-      {isLoaded && sessionLinks}
-    </ul>
+    <>
+      <button onClick={toggleMenu}>
+        <FaUserCircle />
+      </button>
+      <ul className={ulClassName} ref={ulRef}>
+        {user ? (
+          <>
+            <li>{user.username}</li>
+            <li>{user.firstName} {user.lastName}</li>
+            <li>{user.email}</li>
+            <li>
+              <button onClick={logout}>Log Out</button>
+            </li>
+          </>
+        ) : (
+          <>
+            <li>
+              <OpenModalButton
+                buttonText="Log In"
+                onButtonClick={closeMenu}
+                modalComponent={<LoginFormModal />}
+              />
+            </li>
+            <li>
+              <OpenModalButton
+                buttonText="Sign Up"
+                onButtonClick={closeMenu}
+                modalComponent={<SignupFormModal />}
+              />
+            </li>
+          </>
+        )}
+      </ul>
+    </>
   );
 }
 
-export default Navigation;
+export default ProfileButton;
+
+
+
+// import { NavLink } from 'react-router-dom';
+// import { useSelector } from 'react-redux';
+// import ProfileButton from './ProfileButton';
+// import OpenModalButton from '../OpenModalButton';
+// import LoginModal from '../LoginModal';
+// import SignupModal from '../SignupModal';
+// import './Navigation.css';
+
+// function Navigation({ isLoaded }) {
+//   const sessionUser = useSelector((state) => state.session.user);
+
+//   let sessionLinks;
+//   if (sessionUser) {
+//     sessionLinks = (
+//       <li>
+//         <ProfileButton user={sessionUser} />
+//       </li>
+//     );
+//   } else {
+//     sessionLinks = (
+//       <>
+//         <li>
+//           <OpenModalButton
+//             buttonText="Log In"
+//             modalComponent={<LoginModal />}
+//           />
+//         </li>
+//         <li>
+//           <OpenModalButton
+//             buttonText="Sign Up"
+//             modalComponent={<SignupModal />}
+//           />
+//         </li>
+//       </>
+//     );
+//   }
+
+//   return (
+//     <ul>
+//       <li>
+//         <NavLink to="/">Home</NavLink>
+//       </li>
+//       {isLoaded && sessionLinks}
+//     </ul>
+//   );
+// }
+
+// export default Navigation;
 
 
 // import { NavLink } from 'react-router-dom';
