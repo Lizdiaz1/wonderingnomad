@@ -1,0 +1,151 @@
+.spot-detail {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .spot-detail h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .location {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+  }
+
+  .images {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .large-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 4px;
+  }
+
+  .small-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .small-images img {
+    width: 120px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  .info-and-callout {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .spot-info {
+    flex: 1;
+    margin-right: 20px;
+  }
+
+  .spot-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .spot-info p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .review-summary {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+  }
+
+  .review-summary i {
+    color: #ffcc00;
+    margin-right: 5px;
+  }
+
+  .callout-box {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  .price {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .reserve-button {
+    padding: 10px 20px;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .reserve-button:hover {
+    background-color: #005bb5;
+  }
+
+  .reviews-section {
+    margin-top: 40px;
+  }
+
+  .reviews-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .post-review-button {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .post-review-button:hover {
+    background-color: #005bb5;
+  }
+
+  .review {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+
+  .reviewer-name {
+    font-weight: bold;
+  }
+
+  .review-date {
+    color: #666;
+  }
+
+  .review-text {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
