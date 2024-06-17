@@ -193,6 +193,7 @@ const NewSpot = () => {
         {errors.apiError && <p className="error">{errors.apiError}</p>}
 
         <button type="submit">Create Spot</button>
+        <button type="button" onClick={resetForm}>Reset Form</button> {/* Use resetForm here */}
       </form>
     </div>
   );

@@ -97,10 +97,6 @@ const UpdateSpot = () => {
     }
   };
 
-  const resetForm = () => {
-    setErrors({});
-  };
-
   return (
     <div className="update-spot">
       <h1>Update your Spot</h1>
