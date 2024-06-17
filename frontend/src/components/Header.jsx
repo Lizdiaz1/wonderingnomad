@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
-import LoginModal from './LoginModal';
+import LoginModal from './LoginFormPage/LoginModal';
 import SignUpModal from './SignUpModal';
 
 const Header = () => {
