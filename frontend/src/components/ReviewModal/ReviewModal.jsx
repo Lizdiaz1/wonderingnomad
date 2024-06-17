@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './ReviewModal.css';
 
 const ReviewModal = ({ onClose, onSubmit, spotId }) => {

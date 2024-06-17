@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './NewSpot.css';
 
@@ -98,7 +98,7 @@ const NewSpot = () => {
       <h1>Create a New Spot</h1>
       <form onSubmit={handleSubmit}>
         <section>
-          <h2>Where's your place located?</h2>
+          <h2>Where is your place located?</h2>
           <p>Guests will only get your exact address once they booked a reservation.</p>
           <label>
             Country
@@ -144,7 +144,7 @@ const NewSpot = () => {
 
         <section>
           <h2>Create a title for your spot</h2>
-          <p>Catch guests' attention with a spot title that highlights what makes your place special.</p>
+          <p>Catch your guests attention with a spot title that highlights what makes your place special.</p>
           <input
             type="text"
             name="title"

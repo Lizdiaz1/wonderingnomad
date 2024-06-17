@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './UpdateSpot.css';
 
@@ -106,7 +106,7 @@ const UpdateSpot = () => {
       <h1>Update your Spot</h1>
       <form onSubmit={handleSubmit}>
         <section>
-          <h2>Where's your place located?</h2>
+          <h2>Where is your place located?</h2>
           <p>Guests will only get your exact address once they booked a reservation.</p>
           <label>
             Country
@@ -152,7 +152,7 @@ const UpdateSpot = () => {
 
         <section>
           <h2>Create a title for your spot</h2>
-          <p>Catch guests' attention with a spot title that highlights what makes your place special.</p>
+          <p>Catch guests attention with a spot title that highlights what makes your place special.</p>
           <input
             type="text"
             name="title"
@@ -207,4 +207,3 @@ const UpdateSpot = () => {
 };
 
 export default UpdateSpot;
-

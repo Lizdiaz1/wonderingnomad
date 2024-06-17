@@ -1,4 +1,4 @@
-import React from 'react';
+//import React from 'react';
 import './DeleteConfirmationModal.css';
 
 const DeleteConfirmationModal = ({ onClose, onDelete }) => {
