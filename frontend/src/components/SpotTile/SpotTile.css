@@ -1,0 +1,51 @@
+.spot-tile {
+    display: block;
+    width: 270px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #333;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .spot-tile:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .spot-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .spot-info {
+    padding: 10px;
+  }
+
+  .spot-location {
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .spot-rating {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #666;
+  }
+
+  .spot-rating i {
+    color: #ffcc00;
+    margin-right: 5px;
+  }
+
+  .spot-price {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #000;
+    font-weight: bold;
+  }
