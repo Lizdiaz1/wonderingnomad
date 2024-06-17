@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
-import Header from './components/Header';
-import LandingPage from './components/LandingPage';
-import SpotDetail from './components/SpotDetail';
-import NewSpot from './components/NewSpot';
-import ManageSpots from './components/ManageSpots';
-import UpdateSpot from './components/UpdateSpot';
+import Header from './components/Header/Header';
+import LandingPage from './components/LandingPage/LandingPage';
+import SpotDetail from './components/SpotDetail/SpotDetail';
+import NewSpot from './components/NewSpot/NewSpot';
+import ManageSpots from './components/ManageSpots/ManageSpots';
+import UpdateSpot from './components/UpdateSpot/UpdateSpot';
 import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage';
 import Navigation from './components/Navigation';

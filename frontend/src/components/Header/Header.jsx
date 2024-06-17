@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
-import LoginModal from './LoginFormPage/LoginModal';
-import SignUpModal from './SignupFormPage/SignUpModal';
+import LoginModal from '../LoginFormPage/LoginModal';
+import SignUpModal from '../SignupFormPage/SignUpModal';
 
 const Header = () => {
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import SpotTile from './SpotTile';
+import SpotTile from '../SpotTile/SpotTile';
 import './LandingPage.css';
 
 const LandingPage = () => {

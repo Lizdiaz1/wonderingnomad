@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './ManageSpots.css';
-import SpotTile from './SpotTile';
-import DeleteConfirmationModal from './DeleteConfirmationModal';
+import SpotTile from '../SpotTile/SpotTile';
+import DeleteConfirmationModal from '../DeleteConfirmationModal/DeleteConfirmationModal';
 
 const ManageSpots = () => {
   const [spots, setSpots] = useState([]);
