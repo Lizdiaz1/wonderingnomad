@@ -6,13 +6,11 @@ const LandingPage = () => {
   const [spots, setSpots] = useState([]);
 
   useEffect(() => {
-    // Fetch spots from the backend API
     fetch('/api/spots')
       .then(response => response.json())
       .then(data => {
-        // Ensure data is an array before setting it
-        if (Array.isArray(data)) {
-          setSpots(data);
+        if (Array.isArray(data.Spots)) {
+          setSpots(data.Spots);
         } else {
           console.error('Fetched data is not an array:', data);
         }
@@ -27,9 +25,9 @@ const LandingPage = () => {
         {spots.length > 0 ? (
           spots.map((spot, index) => (
             <div key={index}>
-              <img src={spot.thumbnail} alt={`${spot.city}, ${spot.state}`} />
+              <img src={spot.previewImage} alt={`${spot.city}, ${spot.state}`} />
               <p>{spot.city}, {spot.state}</p>
-              <p>{spot.rating ? spot.rating : 'New'}</p>
+              <p>{spot.avgRating ? spot.avgRating : 'New'}</p>
               <p>${spot.price}/night</p>
             </div>
           ))
